@@ -277,7 +277,7 @@ public class DataUtil {
     ]
     */
     public static List<MovieList> getMovieLists() {
-        List<MovieList> result = new ArrayList<MovieList>();
+        List<MovieList> result = new ArrayList<>();
         result.add(new MovieList("New Releases", getMovies().subList(0, 2)));
         result.add(new MovieList("Dramas", getMovies().subList(2, 4)));
         return result;
