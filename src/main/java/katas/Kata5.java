@@ -19,6 +19,10 @@ public class Kata5 {
     public static Double execute() {
         List<Movie> movies = DataUtil.getMovies();
 
-        return 3.0;
+        Double variable = movies.stream()
+                .reduce((acomulated, element) -> acomulated.getRating() > element.getRating() ? acomulated : element)
+                .get().getRating();
+
+        return variable;
     }
 }
