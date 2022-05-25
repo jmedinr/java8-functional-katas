@@ -136,6 +136,67 @@ public class DataUtil {
                         new InterestingMoment("Start", new Date())
                 )
         ));
+        result.add(new Movie(70111470,
+                "Die Hard",
+                ImmutableList.of(
+                        new BoxArt(200, 200, "http://cdn-0.nflximg.com/images/2891/DieHard150.jpg"),
+                        new BoxArt(200, 200, "http://cdn-0.nflximg.com/images/2891/DieHard200.jpg")
+                ),
+                "http://api.netflix.com/catalog/titles/movies/70111470",
+                4.0,
+                ImmutableList.of(new Bookmark(432534, new Date())),
+                ImmutableList.of(
+                        new InterestingMoment("End", new Date()),
+                        new InterestingMoment("Middle", new Date()),
+                        new InterestingMoment("Start", new Date())
+                )
+        ));
+        result.add(new Movie(654356453,
+                "Bad Boys",
+                ImmutableList.of(
+                        new BoxArt(200, 200, "http://cdn-0.nflximg.com/images/2891/BadBoys200.jpg"),
+                        new BoxArt(140, 200, "http://cdn-0.nflximg.com/images/2891/BadBoys140.jpg")
+                        ),
+                "http://api.netflix.com/catalog/titles/movies/70111470",
+                5.0,
+                ImmutableList.of(new Bookmark(432534, new Date())),
+                ImmutableList.of(
+                        new InterestingMoment("End", new Date()),
+                        new InterestingMoment("Middle", new Date()),
+                        new InterestingMoment("Start", new Date())
+                )
+        ));
+        result.add(new Movie(65432445,
+                "The Chamber",
+                ImmutableList.of(
+                        new BoxArt(130, 200, "http://cdn-0.nflximg.com/images/2891/TheChamber130.jpg"),
+                        new BoxArt(200, 200, "http://cdn-0.nflximg.com/images/2891/TheChamber200.jpg")
+                        ),
+                "http://api.netflix.com/catalog/titles/movies/70111470",
+                4.0,
+                ImmutableList.of(new Bookmark(432534, new Date())),
+                ImmutableList.of(
+                        new InterestingMoment("End", new Date()),
+                        new InterestingMoment("Middle", new Date()),
+                        new InterestingMoment("Start", new Date())
+                )
+        ));
+        result.add(new Movie(675465,
+                "Fracture",
+                ImmutableList.of(
+                        new BoxArt(200, 200, "http://cdn-0.nflximg.com/images/2891/Fracture200.jpg"),
+                        new BoxArt(120, 200, "http://cdn-0.nflximg.com/images/2891/Fracture120.jpg"),
+                        new BoxArt(300, 200, "http://cdn-0.nflximg.com/images/2891/Fracture300.jpg")
+                        ),
+                "http://api.netflix.com/catalog/titles/movies/70111470",
+                5.0,
+                ImmutableList.of(new Bookmark(432534, new Date())),
+                ImmutableList.of(
+                        new InterestingMoment("End", new Date()),
+                        new InterestingMoment("Middle", new Date()),
+                        new InterestingMoment("Start", new Date())
+                )
+        ));
         return result;
     }
 
