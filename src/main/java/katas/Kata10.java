@@ -8,6 +8,7 @@ import util.DataUtil;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -57,8 +58,12 @@ public class Kata10 {
         List<Map> lists = DataUtil.getLists();
         List<Map> videos = DataUtil.getVideos();
 
-        return lists.stream().map(list -> ImmutableMap.of("name ",list.get("name"),"videos ",videos.stream()
-                .filter((video) -> (video.get("listId").equals(list.get("id"))))
-                .collect(Collectors.toList()))).collect(Collectors.toList());
+        Function<String, List<Map>> obtenerVideos = (listId) -> videos.stream()
+                .filter(video -> video.get("listId").toString().equals(listId))
+                .map(video -> ImmutableMap.of("id", video.get("id"), "title", video.get("title")))
+                .collect(Collectors.toList());
+
+        return lists.stream().map(list -> ImmutableMap.of("name ",list.get("name"),"videos ",
+                obtenerVideos.apply(list.get("id").toString()))).collect(Collectors.toList());
     }
 }
