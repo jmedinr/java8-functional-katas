@@ -1,10 +1,6 @@
 package katas;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import model.Bookmark;
-import model.BoxArt;
-import model.Movie;
 import model.MovieList;
 import util.DataUtil;
 
@@ -22,12 +18,12 @@ public class Kata7 {
         List<MovieList> movieLists = DataUtil.getMovieLists();
 
         return movieLists.stream().flatMap(movie -> movie.getVideos().stream().map(video -> ImmutableMap.of(
-                "id", video.getId(),
-                "title", video.getTitle(),
-                "box art url",
-                video.getBoxarts().stream()
-                        .reduce((acumulated, element) ->
-                                acumulated.getWidth() < element.getWidth() ? acumulated : element).get().getUrl())))
+                        "id", video.getId(),
+                        "title", video.getTitle(),
+                        "box art url",
+                        video.getBoxarts().stream()
+                                .reduce((acumulated, element) ->
+                                        acumulated.getWidth() < element.getWidth() ? acumulated : element).get().getUrl())))
                 .collect(Collectors.toList());
     }
 }

@@ -19,7 +19,7 @@ public class Kata4 {
         List<MovieList> movieLists = DataUtil.getMovieLists();
 
         return movieLists.stream().flatMap(movies ->
-                movies.getVideos().stream().map(videos->
+                movies.getVideos().stream().map(videos ->
                         ImmutableMap.of(
                                 "id", videos.getId(),
                                 "title", videos.getTitle(),

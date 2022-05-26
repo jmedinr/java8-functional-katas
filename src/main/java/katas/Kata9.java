@@ -1,14 +1,11 @@
 package katas;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import model.MovieList;
 import util.DataUtil;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /*
@@ -28,7 +25,7 @@ public class Kata9 {
                                         .filter(moment -> moment.getType().equals("Middle")).findAny().get().getTime(),
                                 "box art",
                                 videos.getBoxarts().stream()
-                                        .reduce((acumulated, element) -> acumulated.getWidth() >=  element.getWidth() &&
+                                        .reduce((acumulated, element) -> acumulated.getWidth() >= element.getWidth() &&
                                                 acumulated.getHeight() >= element.getHeight() ? element : acumulated)
                                         .get().getUrl())
                 )).collect(Collectors.toList());

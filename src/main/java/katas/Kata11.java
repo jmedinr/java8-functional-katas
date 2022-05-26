@@ -1,14 +1,10 @@
 package katas;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import util.DataUtil;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -74,14 +70,14 @@ public class Kata11 {
         Function<String, String> obtenerUrlBox = (idVideo) -> boxArts.stream().filter(boxArt ->
                         boxArt.get("videoId").toString().equals(idVideo)).reduce((acumulated, element) ->
                         (Integer) acumulated.get("width") >= (Integer) element.get("width") &&
-                        (Integer) acumulated.get("height") >= (Integer) element.get("height") ? element : acumulated)
+                                (Integer) acumulated.get("height") >= (Integer) element.get("height") ? element : acumulated)
                 .get().get("url").toString();
 
         Function<String, List<Map>> obtenerVideos = (idLista) -> videos.stream().filter(video ->
                         video.get("listId").toString().equals(idLista)).map(video ->
                         ImmutableMap.of("id", video.get("id"), "title", video.get("title"),
-                        "time", obtenerTime.apply(video.get("id").toString()),
-                        "boxart", obtenerUrlBox.apply(video.get("id").toString())))
+                                "time", obtenerTime.apply(video.get("id").toString()),
+                                "boxart", obtenerUrlBox.apply(video.get("id").toString())))
                 .collect(Collectors.toList());
 
         return lists.stream().map(list -> ImmutableMap.of("name", list.get("name"),
