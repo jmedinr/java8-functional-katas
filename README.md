@@ -2,7 +2,7 @@ java8-functional-Katas
 ======================
 
 # Katas resueltas
-Juan Diego Medina Rojas
+# Juan Diego Medina Rojas
 ![image](https://user-images.githubusercontent.com/59657015/170413965-27141efb-e36e-4b62-b7b8-3860e475005e.png)
 
 # Vídeo explicativo
