@@ -54,11 +54,17 @@ public class Kata10 {
         List<Map> lists = DataUtil.getLists();
         List<Map> videos = DataUtil.getVideos();
 
+        //Esta función obtiene los videos con los datos necesarios
         Function<String, List<Map>> obtenerVideos = (listId) -> videos.stream()
                 .filter(video -> video.get("listId").toString().equals(listId))
                 .map(video -> ImmutableMap.of("id", video.get("id"), "title", video.get("title")))
                 .collect(Collectors.toList());
 
+        //Retorna un map inmutable con los videos obtenidos
+        /*
+         * return: [{name =New Releases, videos =[{id=65432445, title=The Chamber}, {id=675465, title=Fracture}]},
+         *  {name =Thrillers, videos =[{id=70111470, title=Die Hard}, {id=654356453, title=Bad Boys}]}]
+         */
         return lists.stream().map(list -> ImmutableMap.of("name ", list.get("name"), "videos ",
                 obtenerVideos.apply(list.get("id").toString()))).collect(Collectors.toList());
     }

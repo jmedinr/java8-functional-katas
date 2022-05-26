@@ -17,6 +17,11 @@ public class Kata1 {
     public static List<Map> execute() {
         List<Movie> movies = DataUtil.getMovies();
 
+        /*
+         * Retorna las películas en un map inmutable con el id y el tittle.
+         * return: [{id=70111470, title=Die Hard}, {id=654356453, title=Bad Boys}, {id=65432445, title=The Chamber},
+         * {id=675465, title=Fracture}]
+         */
         return movies.stream().map(movie ->
                         ImmutableMap.of("id", movie.getId(), "title", movie.getTitle()))
                 .collect(Collectors.toList());

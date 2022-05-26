@@ -14,6 +14,7 @@ public class Kata5 {
     public static Double execute() {
         List<Movie> movies = DataUtil.getMovies();
 
+        //Retorna el Rating más alto = 5.0
         Double variable = movies.stream()
                 .reduce((acomulated, element) -> acomulated.getRating() > element.getRating() ? acomulated : element)
                 .get().getRating();

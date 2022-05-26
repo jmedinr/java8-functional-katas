@@ -15,6 +15,10 @@ public class Kata2 {
     public static List<Integer> execute() {
         List<Movie> movies = DataUtil.getMovies();
 
+        /*
+         * Devuelve una lista con los Ids de las películas que tienen Rating >= 5
+         * return: [654356453, 675465]
+         */
         List<Integer> variable = movies.stream().filter(movie ->
                 movie.getRating() == 5.0).map(movie -> movie.getId()).collect(Collectors.toList());
 

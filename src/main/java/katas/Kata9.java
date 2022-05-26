@@ -17,6 +17,7 @@ public class Kata9 {
     public static List<Map> execute() {
         List<MovieList> movieLists = DataUtil.getMovieLists();
 
+        //Obtiene un map inmutable
         return movieLists.stream().flatMap(movies ->
                 movies.getVideos().stream().map(videos ->
                         ImmutableMap.of("id", videos.getId(), "title", videos.getTitle(),

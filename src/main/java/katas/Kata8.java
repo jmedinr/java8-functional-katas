@@ -19,11 +19,19 @@ public class Kata8 {
         List<MovieList> movieLists = DataUtil.getMovieLists();
         List<Bookmark> bookMarks = DataUtil.getBookMarks();
 
+        //Obtiene y ordena los ids de los videos.
         Stream<Integer> variable1 = movieLists.stream().flatMap(movies ->
                 movies.getVideos().stream().map(videos -> videos.getId()).sorted());
 
+        //Obtiene y ordena los ids de los books.
         Stream<Integer> variable2 = bookMarks.stream().map(bookmark -> bookmark.getId()).sorted();
 
+        /*
+         * Realiza un zip de los videos junto con los bookmarks
+         * return: [videoId 70111470 , bookmarkId 445,
+         * videoId 654356453 , bookmarkId 453,
+         * videoId 675465 , bookmarkId 470]
+         */
         List<String> zipped = StreamUtils.zip(variable1,
                         variable2,
                         (a, b) -> "videoId " + a + " , bookmarkId " + b)

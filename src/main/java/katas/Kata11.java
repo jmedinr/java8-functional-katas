@@ -64,15 +64,18 @@ public class Kata11 {
         List<Map> boxArts = DataUtil.getBoxArts();
         List<Map> bookmarkList = DataUtil.getBookmarkList();
 
+        //Obtiene el tiempo desde el bookmarkList
         Function<String, String> obtenerTime = (idVideo) -> bookmarkList.stream().filter(bookmark ->
                 bookmark.get("videoId").toString().equals(idVideo)).findAny().get().get("time").toString();
 
+        //Ontiene la url del video desde boxArts
         Function<String, String> obtenerUrlBox = (idVideo) -> boxArts.stream().filter(boxArt ->
                         boxArt.get("videoId").toString().equals(idVideo)).reduce((acumulated, element) ->
                         (Integer) acumulated.get("width") >= (Integer) element.get("width") &&
                                 (Integer) acumulated.get("height") >= (Integer) element.get("height") ? element : acumulated)
                 .get().get("url").toString();
 
+        // Obtiene una lista de map inmutables con los datos necesarios.
         Function<String, List<Map>> obtenerVideos = (idLista) -> videos.stream().filter(video ->
                         video.get("listId").toString().equals(idLista)).map(video ->
                         ImmutableMap.of("id", video.get("id"), "title", video.get("title"),
@@ -80,6 +83,17 @@ public class Kata11 {
                                 "boxart", obtenerUrlBox.apply(video.get("id").toString())))
                 .collect(Collectors.toList());
 
+        //Retorna una lista total con las categorías y los videos
+        /*
+         * return: [{name=New Releases, videos=[{id=65432445, title=The Chamber, time=32432,
+         * boxart=http://cdn-0.nflximg.com/images/2891/TheChamber130.jpg},
+         * {id=675465, title=Fracture, time=3534543,
+         * boxart=http://cdn-0.nflximg.com/images/2891/Fracture120.jpg}]},
+         * {name=Thrillers, videos=[{id=70111470, title=Die Hard, time=645243,
+         * boxart=http://cdn-0.nflximg.com/images/2891/DieHard150.jpg},
+         * {id=654356453, title=Bad Boys, time=984934,
+         * boxart=http://cdn-0.nflximg.com/images/2891/BadBoys140.jpg}]}]
+         */
         return lists.stream().map(list -> ImmutableMap.of("name", list.get("name"),
                         "videos", obtenerVideos.apply(list.get("id").toString())))
                 .collect(Collectors.toList());

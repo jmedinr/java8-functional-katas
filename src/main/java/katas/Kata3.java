@@ -15,6 +15,10 @@ public class Kata3 {
     public static List<Integer> execute() {
         List<MovieList> movieLists = DataUtil.getMovieLists();
 
+        /*
+         * Realiza in flatten de las películas ids con los ids de videos
+         * return: <[70111470, 654356453, 65432445, 675465]>
+         */
         List<Integer> variable = movieLists.stream().flatMap(movies -> movies.getVideos().stream())
                 .map(videos -> videos.getId()).collect(Collectors.toList());
 
