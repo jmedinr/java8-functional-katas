@@ -1,5 +1,15 @@
 java8-functional-Katas
 ======================
+
+# Katas resueltas
+![image](https://user-images.githubusercontent.com/59657015/170413965-27141efb-e36e-4b62-b7b8-3860e475005e.png)
+
+#Vídeo explicativo
+https://drive.google.com/file/d/1j7iwvaGL9Ns3gAI3UcZt828DhjwdnGdS/view?usp=sharing
+
+
+#Problem
+
 Some Katas for functional programming in Java 8 for a coding dojo (loosely based on http://reactive-extensions.github.io/learnrx/ and converted to Java)
 
 Just read the instructions in the Kata and try to finish them. You can also use TDD if you want - there are dummy tests for all Katas.
